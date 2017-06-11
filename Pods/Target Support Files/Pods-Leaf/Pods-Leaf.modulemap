@@ -1,0 +1,6 @@
+framework module Pods_Leaf {
+  umbrella header "Pods-Leaf-umbrella.h"
+
+  export *
+  module * { export * }
+}

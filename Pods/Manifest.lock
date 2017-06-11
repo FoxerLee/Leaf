@@ -1,0 +1,48 @@
+PODS:
+  - Alamofire (4.4.0)
+  - AVOSCloud (5.0.1)
+  - AVOSCloudCrashReporting (5.0.1):
+    - AVOSCloud (= 5.0.1)
+    - AVOSCloudCrashReporting/_ARC (= 5.0.1)
+    - AVOSCloudCrashReporting/_NOARC (= 5.0.1)
+  - AVOSCloudCrashReporting/_ARC (5.0.1):
+    - AVOSCloud (= 5.0.1)
+    - AVOSCloudCrashReporting/_NOARC (= 5.0.1)
+  - AVOSCloudCrashReporting/_NOARC (5.0.1):
+    - AVOSCloud (= 5.0.1)
+  - AVOSCloudIM (5.0.1):
+    - AVOSCloud (= 5.0.1)
+    - AVOSCloudIM/_ARC (= 5.0.1)
+    - AVOSCloudIM/_NOARC (= 5.0.1)
+  - AVOSCloudIM/_ARC (5.0.1):
+    - AVOSCloud (= 5.0.1)
+    - AVOSCloudIM/_NOARC (= 5.0.1)
+  - AVOSCloudIM/_NOARC (5.0.1):
+    - AVOSCloud (= 5.0.1)
+  - Charts (3.0.2):
+    - Charts/Core (= 3.0.2)
+  - Charts/Core (3.0.2)
+  - SnapKit (3.2.0)
+  - SwiftChart (0.5.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.4)
+  - AVOSCloud
+  - AVOSCloudCrashReporting
+  - AVOSCloudIM
+  - Charts
+  - SnapKit
+  - SwiftChart
+
+SPEC CHECKSUMS:
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  AVOSCloud: 3e0a9813852d923966a8af59d6e6d42517d3abe5
+  AVOSCloudCrashReporting: 9bc336b7e333892f0408dab7ee7197490790aebf
+  AVOSCloudIM: ecdc45197df9dcb3d1b7e7569dbc904ac5233afc
+  Charts: 236d6ccdd0ce6feae151d89e829a7397381a21fd
+  SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
+  SwiftChart: d1d22d2b1c4582f4d561edf97a210059c00ee256
+
+PODFILE CHECKSUM: 0b023ae94308274e089e39e8b4fbb2c3196969c9
+
+COCOAPODS: 1.2.0

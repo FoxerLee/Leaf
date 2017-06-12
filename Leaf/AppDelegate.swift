@@ -28,12 +28,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.statusBarStyle = UIStatusBarStyle.lightContent
         
         // 改变 navigation bar 的背景色及前景色
-        let navigationBarAppearace = UINavigationBar.appearance()
-        navigationBarAppearace.isTranslucent = false
-        navigationBarAppearace.barTintColor = UIColor(hex: 0x25b6ed)
-        navigationBarAppearace.tintColor = UIColor.white
-        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
-        
+//        let navigationBarAppearace = UINavigationBar.appearance()
+//        navigationBarAppearace.isTranslucent = false
+//        navigationBarAppearace.barTintColor = UIColor(hex: 0x25b6ed)
+//        navigationBarAppearace.tintColor = UIColor.white
+//        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
+        UINavigationBar.appearance().tintColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
+        UINavigationBar.appearance().barTintColor = UIColor(red: 136/255, green: 190/255, blue: 187/255, alpha: 1.0)
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
         return true
     }
 

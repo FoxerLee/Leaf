@@ -20,7 +20,7 @@ class LeftViewController: UIViewController, UITableViewDelegate, UITableViewData
     
 //    @IBOutlet weak var menuLabel: UILabel!
     
-    let titleDictionary = ["我的设备", "我的植物", "我的体验", "设置", "更新", "注销"]
+    let titleDictionary = ["我的设备", "笑容检测", "我的体验", "设置", "更新", "注销"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,10 +47,21 @@ class LeftViewController: UIViewController, UITableViewDelegate, UITableViewData
         viewController.homeViewController.titleOfOtherPage = titleDictionary[(indexPath as NSIndexPath).row]
         viewController.homeViewController.performSegue(withIdentifier: "showOtherPages", sender: self)
         Common.stateVC.view.removeFromSuperview()
-//        viewController.mainTabBarController.tabBar.isHidden = true
-//        viewController.mainTabBarController.selectedIndex = 0
+
         viewController.showHome()
         tableView.deselectRow(at: indexPath, animated: false)
+        
+        //笑容检测
+        if indexPath.row == 1 {
+            
+            let viewController = Common.rootViewController
+            viewController.homeViewController.titleOfOtherPage = titleDictionary[(indexPath as NSIndexPath).row]
+            viewController.homeViewController.performSegue(withIdentifier: "faceDetect", sender: self)
+            Common.stateVC.view.removeFromSuperview()
+            
+            viewController.showHome()
+            tableView.deselectRow(at: indexPath, animated: false)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

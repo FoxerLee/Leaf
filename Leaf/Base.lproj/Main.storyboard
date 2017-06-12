@@ -4,7 +4,9 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -183,7 +185,7 @@
                                         <rect key="frame" x="0.0" y="22" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fjF-Q3-Wxg" id="Ydu-oz-USX">
-                                            <rect key="frame" x="0.0" y="0.0" width="310" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qul-BQ-AtO">
@@ -254,6 +256,62 @@
             </objects>
             <point key="canvasLocation" x="1382" y="917"/>
         </scene>
+        <!--Face View Controller-->
+        <scene sceneID="fuz-Vl-97S">
+            <objects>
+                <viewController id="6TM-SX-Gog" customClass="FaceViewController" customModule="Leaf" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8bO-n3-Vbl"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rdf-wx-0rd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xIZ-Bw-wDZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="VSd-ea-77d">
+                                <rect key="frame" x="16" y="155" width="343" height="279"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="VSd-ea-77d" secondAttribute="height" multiplier="343:279" id="8Jg-Up-QzV"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BhM-a9-X8Q">
+                                <rect key="frame" x="88" y="504" width="199" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="来测试一下你现在的心情吧！">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="butonTapped:" destination="6TM-SX-Gog" eventType="touchUpInside" id="OTi-20-4By"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7d1-Wh-Xfv">
+                                <rect key="frame" x="141" y="455" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="上传你的美照">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="choosePhoto:" destination="6TM-SX-Gog" eventType="touchUpInside" id="GNp-qj-HUm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.52614200119999999" green="0.74606055019999995" blue="0.73484605550000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="VSd-ea-77d" firstAttribute="top" secondItem="8bO-n3-Vbl" secondAttribute="bottom" constant="91" id="KgH-Yk-d0i"/>
+                            <constraint firstItem="VSd-ea-77d" firstAttribute="leading" secondItem="xIZ-Bw-wDZ" secondAttribute="leadingMargin" id="VQs-TQ-CTQ"/>
+                            <constraint firstItem="VSd-ea-77d" firstAttribute="trailing" secondItem="xIZ-Bw-wDZ" secondAttribute="trailingMargin" id="c6e-6h-43x"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="FaceImage" destination="VSd-ea-77d" id="xLe-on-bfj"/>
+                        <outlet property="button" destination="BhM-a9-X8Q" id="Fh5-v3-fH1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="64n-Rt-HhO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2468" y="902.69865067466276"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="brk-X8-WBu">
             <objects>
@@ -294,7 +352,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BK6-lI-ymM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2638" y="879"/>
+            <point key="canvasLocation" x="3218" y="981"/>
         </scene>
         <!--Chat Table View Controller-->
         <scene sceneID="DhF-kl-LyO">
@@ -309,7 +367,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fQ2-EM-8IR" id="nO4-Dc-YyC">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -317,7 +375,7 @@
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tdA-cd-8SD" id="tM0-76-HYd">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -330,7 +388,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Abu-hJ-VJR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3806" y="307"/>
+            <point key="canvasLocation" x="3398" y="216"/>
         </scene>
         <!--Chart View Controller-->
         <scene sceneID="0iV-ww-Oov">
@@ -369,7 +427,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JjC-OE-GPe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3465" y="991"/>
+            <point key="canvasLocation" x="3983" y="981"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="NJY-G5-M0I">
@@ -383,41 +441,68 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HOME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8c-1b-TcA">
-                                <rect key="frame" x="61" y="278" width="227" height="95"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <nil key="textColor"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="VWj-fe-59v">
+                                <rect key="frame" x="162" y="134" width="50" height="55"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="观音莲" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEr-3W-mfw">
+                                <rect key="frame" x="86" y="206" width="202" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZl-x4-J8a">
-                                <rect key="frame" x="197" y="457" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plant" translatesAutoresizingMaskIntoConstraints="NO" id="cJ0-sJ-cXl">
+                                <rect key="frame" x="105" y="251" width="165" height="165"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="cJ0-sJ-cXl" secondAttribute="height" multiplier="1:1" id="7LW-hf-hAr"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fm1-dd-91G">
+                                <rect key="frame" x="160" y="462" width="55" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fm1-dd-91G" secondAttribute="height" multiplier="55:54" id="ZVI-DU-avY"/>
+                                </constraints>
+                                <state key="normal" image="talk"/>
                                 <connections>
-                                    <segue destination="ExC-Yl-Xbo" kind="show" id="Nha-2F-1oC"/>
+                                    <action selector="buttonTapped:" destination="E2q-S1-jP4" eventType="touchUpInside" id="PWG-qS-dpe"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.52614200115203857" green="0.74606055021286011" blue="0.73484605550765991" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="cEr-3W-mfw" firstAttribute="leading" secondItem="uEe-3p-MTZ" secondAttribute="leadingMargin" constant="70" id="5J9-pa-kMD"/>
+                            <constraint firstItem="VWj-fe-59v" firstAttribute="leading" secondItem="uEe-3p-MTZ" secondAttribute="leadingMargin" constant="146" id="8y5-2F-XB1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cJ0-sJ-cXl" secondAttribute="trailing" constant="89" id="BiX-VO-L6j"/>
+                            <constraint firstItem="fm1-dd-91G" firstAttribute="leading" secondItem="uEe-3p-MTZ" secondAttribute="leadingMargin" constant="144" id="CDK-6X-JX8"/>
+                            <constraint firstItem="cJ0-sJ-cXl" firstAttribute="top" secondItem="cEr-3W-mfw" secondAttribute="bottom" constant="23" id="J2J-kH-jwR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cEr-3W-mfw" secondAttribute="trailing" constant="71" id="K2E-t2-7Gp"/>
+                            <constraint firstItem="fm1-dd-91G" firstAttribute="top" secondItem="cJ0-sJ-cXl" secondAttribute="bottom" constant="46" id="OpF-7h-KwV"/>
+                            <constraint firstItem="VWj-fe-59v" firstAttribute="top" secondItem="lBy-da-Lgj" secondAttribute="bottom" constant="70" id="X8E-S2-t2A"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fm1-dd-91G" secondAttribute="trailing" constant="144" id="cyw-88-8Zq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VWj-fe-59v" secondAttribute="trailing" constant="147" id="l79-kk-m96"/>
+                            <constraint firstItem="cEr-3W-mfw" firstAttribute="top" secondItem="VWj-fe-59v" secondAttribute="bottom" constant="17" id="wA2-di-Iwe"/>
+                            <constraint firstItem="cJ0-sJ-cXl" firstAttribute="leading" secondItem="uEe-3p-MTZ" secondAttribute="leadingMargin" constant="89" id="wVL-5a-DEM"/>
+                        </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="O8i-yY-nxs" appends="YES" id="9e2-YU-z4h"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="472-uH-sFp">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="LEg-Sm-s0i"/>
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="LEg-Sm-s0i"/>
                         <barButtonItem key="rightBarButtonItem" title="Item" id="CBB-T6-G9q"/>
                     </navigationItem>
                     <connections>
                         <outlet property="panGesture" destination="O8i-yY-nxs" id="cVF-2N-9Hb"/>
+                        <outlet property="recordButton" destination="fm1-dd-91G" id="1wO-EX-ynS"/>
                         <segue destination="xtv-W1-FrX" kind="show" identifier="showOtherPages" id="4FS-6W-Oe5"/>
+                        <segue destination="ExC-Yl-Xbo" kind="show" identifier="Chat" id="7P8-mf-68T"/>
+                        <segue destination="6TM-SX-Gog" kind="show" identifier="faceDetect" id="qNZ-D2-Mel"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hk5-sQ-i6N" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="O8i-yY-nxs"/>
             </objects>
-            <point key="canvasLocation" x="2639" y="139"/>
+            <point key="canvasLocation" x="2637.5999999999999" y="138.98050974512745"/>
         </scene>
         <!--Other View Controller-->
         <scene sceneID="1iW-PZ-CvF">
@@ -454,10 +539,14 @@
         <image name="233" width="55" height="55"/>
         <image name="account" width="55" height="55"/>
         <image name="avatar" width="55" height="55"/>
+        <image name="default" width="540" height="540"/>
         <image name="line" width="210" height="1"/>
         <image name="login in" width="120" height="17"/>
         <image name="logo" width="211" height="136"/>
+        <image name="menu" width="25" height="25"/>
         <image name="password" width="64" height="64"/>
+        <image name="plant" width="330" height="330"/>
         <image name="register" width="120" height="17"/>
+        <image name="talk" width="100" height="100"/>
     </resources>
 </document>

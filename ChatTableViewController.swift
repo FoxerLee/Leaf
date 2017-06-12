@@ -151,7 +151,7 @@ class ChatTableViewController: UITableViewController, UITextViewDelegate {
             if response.error == nil {
                 
                 let result = response.result.value as? [String: Any]
-                print(result)
+//                print(result)
                 if let text = result?["text"] {
                     
                     let message = Message(incoming: true, text: text as! String, sentDate: NSDate())

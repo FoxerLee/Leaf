@@ -43,7 +43,7 @@ class BackViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         // 给根容器设置背景
-        let imageView = UIImageView(image: UIImage(named: "back"))
+        let imageView = UIImageView(image: UIImage(named: "back_1"))
         imageView.frame = UIScreen.main.bounds
         self.view.addSubview(imageView)
         

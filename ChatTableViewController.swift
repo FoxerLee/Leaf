@@ -27,7 +27,15 @@ class ChatTableViewController: UITableViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "灵儿"
+        self.title = "小植"
+        
+        // 给根容器设置背景
+        let imageView = UIImageView(image: UIImage(named: "back_1"))
+        self.tableView.backgroundColor = UIColor.clear
+        self.tableView.backgroundView = imageView
+        
+        
+        
         //tableView进行一些必要的设置
         tableView.keyboardDismissMode = .interactive
         tableView.keyboardDismissMode = .onDrag
@@ -42,35 +50,30 @@ class ChatTableViewController: UITableViewController, UITextViewDelegate {
         //假的聊天数据
         messages = [
             [
-                Message(incoming: true, text: "你叫什么名字？", sentDate: NSDate(timeIntervalSinceNow: -12*60*60*24)),
-                Message(incoming: false, text: "我叫灵灵，聪明又可爱的灵灵", sentDate: NSDate(timeIntervalSinceNow:-12*60*60*24))
+                Message(incoming: false, text: "你叫什么名字？", sentDate: NSDate(timeIntervalSinceNow: -12*60*60*24)),
+                Message(incoming: true, text: "我叫灵灵，聪明又可爱的灵灵", sentDate: NSDate(timeIntervalSinceNow:-12*60*60*24))
             ],
             [
-                Message(incoming: true, text: "你爱不爱我？", sentDate: NSDate(timeIntervalSinceNow: -6*60*60*24 - 200)),
-                Message(incoming: false, text: "爱你么么哒", sentDate: NSDate(timeIntervalSinceNow: -6*60*60*24 - 100))
+                Message(incoming: false, text: "你爱不爱我？", sentDate: NSDate(timeIntervalSinceNow: -6*60*60*24 - 200)),
+                Message(incoming: true, text: "爱你么么哒", sentDate: NSDate(timeIntervalSinceNow: -6*60*60*24 - 100))
             ],
             [
-                Message(incoming: true, text: "北京今天天气", sentDate: NSDate(timeIntervalSinceNow: -60*60*18)),
-                Message(incoming: false, text: "北京:08/30 周日,19-27° 21° 雷阵雨转小雨-中雨 微风小于3级;08/31 周一,18-26° 中雨 微风小于3级;09/01 周二,18-25° 阵雨 微风小于3级;09/02 周三,20-30° 多云 微风小于3级", sentDate: NSDate(timeIntervalSinceNow: -60*60*18))
+                Message(incoming: false, text: "北京今天天气", sentDate: NSDate(timeIntervalSinceNow: -60*60*18)),
+                Message(incoming: true, text: "北京:08/30 周日,19-27° 21° 雷阵雨转小雨-中雨 微风小于3级;08/31 周一,18-26° 中雨 微风小于3级;09/01 周二,18-25° 阵雨 微风小于3级;09/02 周三,20-30° 多云 微风小于3级", sentDate: NSDate(timeIntervalSinceNow: -60*60*18))
             ],
             [
-                Message(incoming: true, text: "你在干嘛", sentDate: NSDate(timeIntervalSinceNow: -60)),
-                Message(incoming: false, text: "我会逗你开心啊", sentDate: NSDate(timeIntervalSinceNow: -65))
-            ],
-            [
-                Message(incoming: true, text: "你爱不爱我？", sentDate: NSDate(timeIntervalSinceNow: -6*60*60*24 - 200)),
-                Message(incoming: false, text: "爱你么么哒", sentDate: NSDate(timeIntervalSinceNow: -6*60*60*24 - 100))
-            ],
-            [
-                Message(incoming: true, text: "北京今天天气", sentDate: NSDate(timeIntervalSinceNow: -60*60*18)),
-                Message(incoming: false, text: "北京:08/30 周日,19-27° 21° 雷阵雨转小雨-中雨 微风小于3级;08/31 周一,18-26° 中雨 微风小于3级;09/01 周二,18-25° 阵雨 微风小于3级;09/02 周三,20-30° 多云 微风小于3级", sentDate: NSDate(timeIntervalSinceNow: -60*60*18))
-            ],
-            [
-                Message(incoming: true, text: "你在干嘛111", sentDate: NSDate(timeIntervalSinceNow: -60)),
-                Message(incoming: false, text: "我会逗你开心啊111", sentDate: NSDate(timeIntervalSinceNow: -65))
+                Message(incoming: false, text: "你在干嘛", sentDate: NSDate(timeIntervalSinceNow: -60)),
+                Message(incoming: true, text: "我会逗你开心啊", sentDate: NSDate(timeIntervalSinceNow: -65))
             ],
             
         ]
+        // 自定义返回按钮
+        let backButton = UIBarButtonItem(title: "く返回", style: UIBarButtonItemStyle.plain, target: self, action: #selector(PlantViewController.goBack))
+        self.navigationItem.leftBarButtonItem = backButton
+        // 弥补因为返回按钮被替换导致的边缘滑入手势失效的问题
+        let gesture = UIPanGestureRecognizer(target: self, action: #selector(PlantViewController.goBack))
+        
+        self.view.addGestureRecognizer(gesture)
     }
 
     override func didReceiveMemoryWarning() {
@@ -187,6 +190,7 @@ class ChatTableViewController: UITableViewController, UITextViewDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath as IndexPath) as!  MessageSentDateTableViewCell
             let message = messages[indexPath.section][0]
             cell.sentDateLabel.text = formatDate(date: message.sentDate)
+            cell.backgroundColor = UIColor.clear
             return cell
             
         }
@@ -196,6 +200,7 @@ class ChatTableViewController: UITableViewController, UITextViewDelegate {
             let message = messages[indexPath.section][indexPath.row - 1]
             //print(message.text)
             cell.configureWithMessage(message: message)
+            cell.backgroundColor = UIColor.clear
             return cell
         }
     }
@@ -257,6 +262,8 @@ class ChatTableViewController: UITableViewController, UITextViewDelegate {
         return dateFormatter.string(from: date as Date)
     }
     
-    
+    func goBack() {
+        _ = self.navigationController?.popViewController(animated: true)
+    }
 
 }

@@ -20,8 +20,8 @@ class LeftViewController: UIViewController, UITableViewDelegate, UITableViewData
     
 //    @IBOutlet weak var menuLabel: UILabel!
     
-    let titleDictionary = ["我的设备", "笑容检测", "我的体验", "设置", "更新", "注销"]
-    
+    let titleDictionary = ["小植聊天", "心情检测", "我的植物", "个性设置", "开发者", "退出"]
+    let iconDictionary = ["1", "2", "3", "4", "5", "6"]
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,21 +42,43 @@ class LeftViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     // 处理点击事件
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let viewController = Common.rootViewController
-        viewController.homeViewController.titleOfOtherPage = titleDictionary[(indexPath as NSIndexPath).row]
-        viewController.homeViewController.performSegue(withIdentifier: "showOtherPages", sender: self)
-        Common.stateVC.view.removeFromSuperview()
-
-        viewController.showHome()
-        tableView.deselectRow(at: indexPath, animated: false)
+        //聊天
+        if indexPath.row == 0 {
+            let viewController = Common.rootViewController
+            viewController.homeViewController.titleOfOtherPage = titleDictionary[(indexPath as NSIndexPath).row]
+            viewController.homeViewController.performSegue(withIdentifier: "chat", sender: self)
+            Common.stateVC.view.removeFromSuperview()
+            
+            viewController.showHome()
+            tableView.deselectRow(at: indexPath, animated: false)
+        }
         
         //笑容检测
-        if indexPath.row == 1 {
+        else if indexPath.row == 1 {
             
             let viewController = Common.rootViewController
             viewController.homeViewController.titleOfOtherPage = titleDictionary[(indexPath as NSIndexPath).row]
             viewController.homeViewController.performSegue(withIdentifier: "faceDetect", sender: self)
+            Common.stateVC.view.removeFromSuperview()
+            
+            viewController.showHome()
+            tableView.deselectRow(at: indexPath, animated: false)
+        }
+        //植物
+        else if indexPath.row == 2 {
+            let viewController = Common.rootViewController
+            viewController.homeViewController.titleOfOtherPage = titleDictionary[(indexPath as NSIndexPath).row]
+            viewController.homeViewController.performSegue(withIdentifier: "plant", sender: self)
+            Common.stateVC.view.removeFromSuperview()
+            
+            viewController.showHome()
+            tableView.deselectRow(at: indexPath, animated: false)
+        }
+        //开发者
+        else if indexPath.row == 4 {
+            let viewController = Common.rootViewController
+            viewController.homeViewController.titleOfOtherPage = titleDictionary[(indexPath as NSIndexPath).row]
+            viewController.homeViewController.performSegue(withIdentifier: "developer", sender: self)
             Common.stateVC.view.removeFromSuperview()
             
             viewController.showHome()
@@ -77,6 +99,8 @@ class LeftViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.backgroundColor = UIColor.clear
 //        cell.textLabel!.text = titleDictionary[(indexPath as NSIndexPath).row]
         cell.menuLabel.text = titleDictionary[(indexPath as NSIndexPath).row]
+        let menuImageStr = iconDictionary[(indexPath as NSIndexPath).row]
+        cell.menuImage.image = UIImage(named: menuImageStr)
         return cell
     }
     /*

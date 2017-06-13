@@ -17,6 +17,8 @@
 		7A77D64A1EE1548800E9D2E3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A77D6491EE1548800E9D2E3 /* HomeViewController.swift */; };
 		7A77D64C1EE1554000E9D2E3 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A77D64B1EE1554000E9D2E3 /* Common.swift */; };
 		7A77D64F1EE1570700E9D2E3 /* BackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A77D64E1EE1570700E9D2E3 /* BackViewController.swift */; };
+		7A7A223B1EF014B800D4D888 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7A223A1EF014B800D4D888 /* EditViewController.swift */; };
+		7A7A223D1EF03EAB00D4D888 /* DeveloperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7A223C1EF03EAB00D4D888 /* DeveloperViewController.swift */; };
 		7A7F3E021EDEF0A300D37470 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7F3E011EDEF0A300D37470 /* AppDelegate.swift */; };
 		7A7F3E041EDEF0A300D37470 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7F3E031EDEF0A300D37470 /* ViewController.swift */; };
 		7A7F3E071EDEF0A300D37470 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A7F3E051EDEF0A300D37470 /* Main.storyboard */; };
@@ -27,7 +29,7 @@
 		7AFA02C61EE2540B009B22A2 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFA02C41EE2540B009B22A2 /* MainTabBarController.swift */; };
 		7AFA02C71EE2540B009B22A2 /* MainTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AFA02C51EE2540B009B22A2 /* MainTabBarController.xib */; };
 		7AFA02CA1EE26645009B22A2 /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFA02C91EE26645009B22A2 /* LeftViewController.swift */; };
-		7AFA02CC1EE27C44009B22A2 /* OtherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFA02CB1EE27C44009B22A2 /* OtherViewController.swift */; };
+		7AFA02CC1EE27C44009B22A2 /* PlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFA02CB1EE27C44009B22A2 /* PlantViewController.swift */; };
 		7AFA02D01EE2A195009B22A2 /* SwiftColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFA02CF1EE2A195009B22A2 /* SwiftColors.swift */; };
 		7AFA02D21EE2A8D1009B22A2 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFA02D11EE2A8D1009B22A2 /* MenuTableViewCell.swift */; };
 		F7CFF5CF04DAFF9D7E53D451 /* Pods_Leaf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4646D3053E365BA1FBA7DE07 /* Pods_Leaf.framework */; };
@@ -62,6 +64,8 @@
 		7A77D6491EE1548800E9D2E3 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7A77D64B1EE1554000E9D2E3 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		7A77D64E1EE1570700E9D2E3 /* BackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackViewController.swift; sourceTree = "<group>"; };
+		7A7A223A1EF014B800D4D888 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		7A7A223C1EF03EAB00D4D888 /* DeveloperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeveloperViewController.swift; sourceTree = "<group>"; };
 		7A7F3DFE1EDEF0A300D37470 /* Leaf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Leaf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A7F3E011EDEF0A300D37470 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A7F3E031EDEF0A300D37470 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -78,7 +82,7 @@
 		7AFA02C41EE2540B009B22A2 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		7AFA02C51EE2540B009B22A2 /* MainTabBarController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTabBarController.xib; sourceTree = "<group>"; };
 		7AFA02C91EE26645009B22A2 /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
-		7AFA02CB1EE27C44009B22A2 /* OtherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherViewController.swift; sourceTree = "<group>"; };
+		7AFA02CB1EE27C44009B22A2 /* PlantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantViewController.swift; sourceTree = "<group>"; };
 		7AFA02CF1EE2A195009B22A2 /* SwiftColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftColors.swift; path = "../../Downloads/SwiftSideslipLikeQQ-master/SwiftColors.swift"; sourceTree = "<group>"; };
 		7AFA02D11EE2A8D1009B22A2 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		7AFA8A841EE0512200901580 /* Leaf-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Leaf-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -145,11 +149,20 @@
 		7A77D64D1EE1554500E9D2E3 /* others */ = {
 			isa = PBXGroup;
 			children = (
-				7AFA02CB1EE27C44009B22A2 /* OtherViewController.swift */,
+				7A7A223C1EF03EAB00D4D888 /* DeveloperViewController.swift */,
 				7A77D64B1EE1554000E9D2E3 /* Common.swift */,
 				7AFA8A841EE0512200901580 /* Leaf-Bridging-Header.h */,
 			);
 			name = others;
+			sourceTree = "<group>";
+		};
+		7A7A22391EEFEF7A00D4D888 /* plant */ = {
+			isa = PBXGroup;
+			children = (
+				7AFA02CB1EE27C44009B22A2 /* PlantViewController.swift */,
+				7A7A223A1EF014B800D4D888 /* EditViewController.swift */,
+			);
+			name = plant;
 			sourceTree = "<group>";
 		};
 		7A7F3DF51EDEF0A200D37470 = {
@@ -178,6 +191,7 @@
 		7A7F3E001EDEF0A300D37470 /* Leaf */ = {
 			isa = PBXGroup;
 			children = (
+				7A7A22391EEFEF7A00D4D888 /* plant */,
 				7A67E6BD1EEE6475009B08E4 /* face detect */,
 				7A23CE761EEB999200885B60 /* chat */,
 				7AFA02C81EE265F3009B22A2 /* left menu */,
@@ -444,6 +458,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A7A223D1EF03EAB00D4D888 /* DeveloperViewController.swift in Sources */,
 				7A7F3E041EDEF0A300D37470 /* ViewController.swift in Sources */,
 				7A7F3E021EDEF0A300D37470 /* AppDelegate.swift in Sources */,
 				7AFA02C61EE2540B009B22A2 /* MainTabBarController.swift in Sources */,
@@ -452,8 +467,9 @@
 				7A23CE7C1EEBA0A100885B60 /* MessageBubbleTableViewCell.swift in Sources */,
 				7AFA02D21EE2A8D1009B22A2 /* MenuTableViewCell.swift in Sources */,
 				7A77D64C1EE1554000E9D2E3 /* Common.swift in Sources */,
+				7A7A223B1EF014B800D4D888 /* EditViewController.swift in Sources */,
 				7AFA02D01EE2A195009B22A2 /* SwiftColors.swift in Sources */,
-				7AFA02CC1EE27C44009B22A2 /* OtherViewController.swift in Sources */,
+				7AFA02CC1EE27C44009B22A2 /* PlantViewController.swift in Sources */,
 				7AFA02CA1EE26645009B22A2 /* LeftViewController.swift in Sources */,
 				7A77D64A1EE1548800E9D2E3 /* HomeViewController.swift in Sources */,
 				7A67E6BC1EEE646B009B08E4 /* FaceViewController.swift in Sources */,

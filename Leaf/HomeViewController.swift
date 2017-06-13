@@ -18,6 +18,7 @@ class HomeViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeech
     var titleOfOtherPage = ""
     var speechWords = ""
     @IBOutlet weak var recordButton: UIButton!
+    @IBOutlet weak var voiceImage: UIImageView!
 
     @IBOutlet var panGesture: UIPanGestureRecognizer!
     
@@ -69,6 +70,8 @@ class HomeViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeech
             }
         }
         
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -96,11 +99,12 @@ class HomeViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeech
                     }
                 }
             }
-
+            self.voiceImage.image = UIImage()
         }
         else {
             startRecording()
             self.recordButton.setTitle("Stop Recording", for: .normal)
+            self.voiceImage.image = UIImage(named: "voice")
         }
     }
 

@@ -16,16 +16,23 @@ class FaceViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var button: UIButton!
     
     let imagePicker = UIImagePickerController()
-//    var objectID = ""
+
+    @IBOutlet weak var wordsLabel: UILabel!
     let p = AVObject(className: "photo")
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.button.setTitle("现在对着镜头笑一笑吧!", for: [])
-        // Do any additional setup after loading the view.
+        self.button.setTitle("来测试一下你现在的心情吧!", for: [])
+        self.wordsLabel.text = normalDictionary[1]
+        // 自定义返回按钮
+        let backButton = UIBarButtonItem(title: "く返回", style: UIBarButtonItemStyle.plain, target: self, action: #selector(PlantViewController.goBack))
+        self.navigationItem.leftBarButtonItem = backButton
+        // 弥补因为返回按钮被替换导致的边缘滑入手势失效的问题
+        let gesture = UIPanGestureRecognizer(target: self, action: #selector(PlantViewController.goBack))
         
+        self.view.addGestureRecognizer(gesture)
     }
 
     override func didReceiveMemoryWarning() {
@@ -103,33 +110,53 @@ class FaceViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         let photo_url = photo.object(forKey: "url") as! String
         print(photo_url)
-//        // 将图片转换为base64字符串
-//        let imageStr = imageData?.base64EncodedString(options: .lineLength64Characters)
-//        let multipartFormData = MultipartFormData()
-//        multipartFormData.append(imageData!, withName: "face")
+
         
         
         let return_attributes = "gender,age,smiling,emotion" as String
         //调用face++ api接口
         Alamofire.request(URL(string: "https://api-cn.faceplusplus.com/facepp/v3/detect")!, method: .post, parameters: ["api_key":"a5xMTjWgfCZXYRmJGMqbTpkWkg9MFmL9","api_secret":"C11NG7sxXPp7oqKz4Ckgih6G2qik3k0-","image_url":photo_url,"return_attributes": return_attributes]).responseJSON(options: JSONSerialization.ReadingOptions.mutableContainers) { response in
             debugPrint(response)
-//            if response.error == nil {
-//                
-//                //获取数据写得我要死了@_@
-//                let result = response.result.value as! [String: Any]
-//                print(result)
-//                let faces = result["faces"] as! NSArray
-//                
-//                let attributes_all = faces[0] as! NSDictionary
-//                
-//                let attributes = attributes_all.object(forKey: "attributes") as! NSDictionary
-//
-//                let emotion = attributes.object(forKey: "emotion") as! NSDictionary
-//                let happiness = emotion.object(forKey: "happiness") as! Double
-//                print(happiness)
-//
-//            }
-            
+            if response.error == nil {
+                
+                //获取数据写得我要死了@_@
+                let result = response.result.value as! [String: Any]
+                print(result)
+                let faces = result["faces"] as! NSArray
+                
+                let attributes_all = faces[0] as! NSDictionary
+                
+                let attributes = attributes_all.object(forKey: "attributes") as! NSDictionary
+
+                let emotion = attributes.object(forKey: "emotion") as! NSDictionary
+                let happiness = emotion.object(forKey: "happiness") as! Double
+                print(happiness)
+                let sadness = emotion.object(forKey: "sadness") as! Double
+                print(sadness)
+                let randomInt = Int(arc4random()) % 101
+                var randomResult = 0
+                if randomInt < 50 {
+                    randomResult = 0
+                }
+                else {
+                    randomResult = 1
+                }
+                if (happiness < 23.0 && happiness > 58.0) {
+                    userEmotion = 0
+                    self.button.setTitle("主人今天有一点不开心吗？", for: [])
+                    self.wordsLabel.text = sadDictionary[randomResult]
+                }
+                else if (happiness > 58.0 && sadness < 23.0) {
+                    userEmotion = 2
+                    self.button.setTitle("把自己的快乐传播给别人吧！", for: [])
+                    self.wordsLabel.text = happyDictionary[randomResult]
+                }
+                else {
+                    userEmotion = 1
+                    self.button.setTitle("平常心也是不错的呢！", for: [])
+                    self.wordsLabel.text = normalDictionary[randomResult]
+                }
+            }            
         }
     }
 //        //人脸检测部分
@@ -161,6 +188,11 @@ class FaceViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 //        else {
 //            self.button.setTitle("主人你的脸被吃掉了吗@—@", for: [])
 //        }
+    
+    func goBack() {
+        _ = self.navigationController?.popViewController(animated: true)
+    }
+    
     
     
 }

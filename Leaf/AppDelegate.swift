@@ -12,6 +12,17 @@ import AVOSCloud
 let api_key = "0e5bb6fec1fe4f609d60714336ea6fba"
 let api_url = "http://www.tuling123.com/openapi/api"
 let userId = "Leaf"
+var userEmotion = 1
+
+let sadDictionary = ["想哭的时候能哭出来，也是一种坚强。-- 法伊·D·佛罗莱特",
+                     "你可是不到最后不轻言放弃的人! -- 三井寿"
+                    ]
+let normalDictionary = ["你的梦想就是我的梦想。-- 上杉达也",
+                        "哪里有你的地方，哪里就是我的家。-- 克罗诺",
+                       ]
+let happyDictionary = ["你可是要成为海贼王的男人！-- 路飞",
+                       "缘，妙不可言。-- 虾菌"
+                      ]
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -34,9 +45,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        navigationBarAppearace.tintColor = UIColor.white
 //        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
         UINavigationBar.appearance().tintColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
-        UINavigationBar.appearance().barTintColor = UIColor(red: 136/255, green: 190/255, blue: 187/255, alpha: 1.0)
+//        UINavigationBar.appearance().barTintColor = UIColor(red: 136/255, green: 190/255, blue: 187/255, alpha: 1.0)
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
+        UINavigationBar.appearance().setBackgroundImage(UIImage(named:"bar"), for: .default)
+        UINavigationBar.appearance().shadowImage = UIImage()
+        
         return true
     }
 

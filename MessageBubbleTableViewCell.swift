@@ -72,7 +72,7 @@ class MessageBubbleTableViewCell: UITableViewCell {
                 tag = incomingTag
                 bubbleImageView.image = bubbleImage.incoming
                 bubbleImageView.highlightedImage = bubbleImage.incomingHighlighed
-                messageLabel.textColor = UIColor.orange
+                messageLabel.textColor = UIColor(red: 136/255, green: 190/255, blue: 187/255, alpha: 1.0)
                 make.left.equalTo(contentView.snp.left).offset(10)
                 messageLabel.snp.updateConstraints { (make) -> Void in
                     make.centerX.equalTo(bubbleImageView.snp.centerX).offset(3)
@@ -112,8 +112,10 @@ func bubbleImageMake() -> (incoming: UIImage, incomingHighlighed: UIImage, outgo
     
     let incoming = coloredImage(image: maskIncoming, red: 229/255, green: 229/255, blue: 234/255, alpha: 1).resizableImage(withCapInsets: capInsetsIncoming)
     let incomingHighlighted = coloredImage(image: maskIncoming, red: 206/255, green: 206/255, blue: 210/255, alpha: 1).resizableImage(withCapInsets: capInsetsIncoming)
-    let outgoing = coloredImage(image: maskOutgoing,  red: 0.05 ,green: 0.47,blue: 0.91,alpha: 1.0).resizableImage(withCapInsets: capInsetsOutgoing)
-    let outgoingHighlighted = coloredImage(image: maskOutgoing, red: 32/255, green: 96/255, blue: 200/255, alpha: 1).resizableImage(withCapInsets: capInsetsOutgoing)
+    
+
+    let outgoing = coloredImage(image: maskOutgoing,  red: 136/255, green: 190/255, blue: 187/255, alpha: 1.0).resizableImage(withCapInsets: capInsetsOutgoing)
+    let outgoingHighlighted = coloredImage(image: maskOutgoing, red: 88/255, green: 123/255, blue: 121/255, alpha: 1).resizableImage(withCapInsets: capInsetsOutgoing)
     
     return (incoming, incomingHighlighted, outgoing, outgoingHighlighted)
 }

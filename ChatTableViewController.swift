@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import Alamofire
+import AVOSCloud
 
 let messageFontSize: CGFloat = 17
 let toolBarMinHeight: CGFloat = 44
@@ -47,33 +48,17 @@ class ChatTableViewController: UITableViewController, UITextViewDelegate {
         tableView.register(MessageSentDateTableViewCell.self, forCellReuseIdentifier: NSStringFromClass(MessageSentDateTableViewCell.self))
         tableView.register(MessageBubbleTableViewCell.self, forCellReuseIdentifier: NSStringFromClass(MessageBubbleTableViewCell.self))
         
-        //假的聊天数据
-        messages = [
-            [
-                Message(incoming: false, text: "你叫什么名字？", sentDate: NSDate(timeIntervalSinceNow: -12*60*60*24)),
-                Message(incoming: true, text: "我叫灵灵，聪明又可爱的灵灵", sentDate: NSDate(timeIntervalSinceNow:-12*60*60*24))
-            ],
-            [
-                Message(incoming: false, text: "你爱不爱我？", sentDate: NSDate(timeIntervalSinceNow: -6*60*60*24 - 200)),
-                Message(incoming: true, text: "爱你么么哒", sentDate: NSDate(timeIntervalSinceNow: -6*60*60*24 - 100))
-            ],
-            [
-                Message(incoming: false, text: "北京今天天气", sentDate: NSDate(timeIntervalSinceNow: -60*60*18)),
-                Message(incoming: true, text: "北京:08/30 周日,19-27° 21° 雷阵雨转小雨-中雨 微风小于3级;08/31 周一,18-26° 中雨 微风小于3级;09/01 周二,18-25° 阵雨 微风小于3级;09/02 周三,20-30° 多云 微风小于3级", sentDate: NSDate(timeIntervalSinceNow: -60*60*18))
-            ],
-            [
-                Message(incoming: false, text: "你在干嘛", sentDate: NSDate(timeIntervalSinceNow: -60)),
-                Message(incoming: true, text: "我会逗你开心啊", sentDate: NSDate(timeIntervalSinceNow: -65))
-            ],
-            
-        ]
+
+        //初始化数据
+        self.initData()
         // 自定义返回按钮
-        let backButton = UIBarButtonItem(title: "く返回", style: UIBarButtonItemStyle.plain, target: self, action: #selector(PlantViewController.goBack))
-        self.navigationItem.leftBarButtonItem = backButton
-        // 弥补因为返回按钮被替换导致的边缘滑入手势失效的问题
-        let gesture = UIPanGestureRecognizer(target: self, action: #selector(PlantViewController.goBack))
         
-        self.view.addGestureRecognizer(gesture)
+        let backButton = UIBarButtonItem(image: UIImage(named: "b"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(PlantViewController.goBack))
+        self.navigationItem.leftBarButtonItem = backButton
+//        // 弥补因为返回按钮被替换导致的边缘滑入手势失效的问题
+//        let gesture = UIPanGestureRecognizer(target: self, action: #selector(PlantViewController.goBack))
+//        
+//        self.view.addGestureRecognizer(gesture)
     }
 
     override func didReceiveMemoryWarning() {
@@ -132,7 +117,9 @@ class ChatTableViewController: UITableViewController, UITextViewDelegate {
     
     func sendAction(sender: UIButton) {
         //将新的消息添加到消息数组
-        messages.append([Message(incoming: false, text: textView.text, sentDate: NSDate())])
+        let message = Message(incoming: false, text: textView.text, sentDate: NSDate())
+        messages.append([message])
+        self.saveMessage(message: message)
         question = textView.text
         textView.text = nil
         updateTextViewHeight()
@@ -158,7 +145,7 @@ class ChatTableViewController: UITableViewController, UITextViewDelegate {
                 if let text = result?["text"] {
                     
                     let message = Message(incoming: true, text: text as! String, sentDate: NSDate())
-//                    self.saveMessage(message)
+                    self.saveMessage(message: message)
                     self.messages[lastSection].append(message)
                 }
                 self.tableView.beginUpdates()
@@ -266,4 +253,40 @@ class ChatTableViewController: UITableViewController, UITextViewDelegate {
         _ = self.navigationController?.popViewController(animated: true)
     }
 
+    private func initData() {
+        var index = 0
+        var section = 0
+        var currentDate:NSDate?
+        let quary = AVQuery(className: "Messages")
+        quary.order(byAscending: "sentDate")
+        
+        if messages.count <= 1 {
+            for object in quary.findObjects() as! [AVObject] {
+                let message = Message(incoming: object.object(forKey: "incoming") as! Bool, text: object.object(forKey: "text") as! String, sentDate: object.object(forKey: "sentDate") as! NSDate)
+                
+                if index == 0{
+                    currentDate = message.sentDate
+                }
+                let timeInterval = message.sentDate.timeIntervalSince(currentDate! as Date)
+                
+                if timeInterval < 120{
+                    messages[section].append(message)
+                }else{
+                    section += 1
+                    messages.append([message])
+                }
+                currentDate = message.sentDate
+                index += 1
+            }
+        }
+    }
+    
+    private func saveMessage(message:Message) {
+        let saveObject = AVObject(className: "Messages")
+        saveObject.setObject(message.incoming, forKey: "incoming")
+        saveObject.setObject(message.text, forKey: "text")
+        saveObject.setObject(message.sentDate, forKey: "sentDate")
+        
+        saveObject.saveEventually()
+    }
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A13987C1EF14BB5009A22DD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A13987B1EF14BB5009A22DD /* Launch Screen.storyboard */; };
+		7A13987E1EF14F78009A22DD /* log.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A13987D1EF14F78009A22DD /* log.png */; };
+		7A1398801EF14F8C009A22DD /* Leaf.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A13987F1EF14F8C009A22DD /* Leaf.png */; };
 		7A23CE781EEB99AD00885B60 /* ChatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A23CE771EEB99AD00885B60 /* ChatTableViewController.swift */; };
 		7A23CE7A1EEB9AEC00885B60 /* InputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A23CE791EEB9AEC00885B60 /* InputTextView.swift */; };
 		7A23CE7C1EEBA0A100885B60 /* MessageBubbleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A23CE7B1EEBA0A100885B60 /* MessageBubbleTableViewCell.swift */; };
@@ -20,17 +23,19 @@
 		7A7A223B1EF014B800D4D888 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7A223A1EF014B800D4D888 /* EditViewController.swift */; };
 		7A7A223D1EF03EAB00D4D888 /* DeveloperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7A223C1EF03EAB00D4D888 /* DeveloperViewController.swift */; };
 		7A7F3E021EDEF0A300D37470 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7F3E011EDEF0A300D37470 /* AppDelegate.swift */; };
-		7A7F3E041EDEF0A300D37470 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7F3E031EDEF0A300D37470 /* ViewController.swift */; };
 		7A7F3E071EDEF0A300D37470 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A7F3E051EDEF0A300D37470 /* Main.storyboard */; };
-		7A7F3E0C1EDEF0A300D37470 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A7F3E0A1EDEF0A300D37470 /* LaunchScreen.storyboard */; };
 		7A7F3E171EDEF0A300D37470 /* LeafTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7F3E161EDEF0A300D37470 /* LeafTests.swift */; };
 		7A7F3E221EDEF0A300D37470 /* LeafUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7F3E211EDEF0A300D37470 /* LeafUITests.swift */; };
+		7AADFAC01EF0C6F600858EA9 /* OwnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AADFABF1EF0C6F600858EA9 /* OwnerViewController.swift */; };
+		7AADFAC21EF0C70900858EA9 /* EditOwnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AADFAC11EF0C70900858EA9 /* EditOwnerViewController.swift */; };
+		7AADFAC61EF119CD00858EA9 /* TemChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AADFAC51EF119CD00858EA9 /* TemChartViewController.swift */; };
+		7AADFACA1EF11B0600858EA9 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AADFAC91EF11B0600858EA9 /* String.swift */; };
+		7AADFACC1EF11BF900858EA9 /* ExamplesDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AADFACB1EF11BF900858EA9 /* ExamplesDefaults.swift */; };
+		7AADFACE1EF12BCB00858EA9 /* humChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AADFACD1EF12BCB00858EA9 /* humChartViewController.swift */; };
+		7AADFAD01EF12C6C00858EA9 /* illChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AADFACF1EF12C6C00858EA9 /* illChartViewController.swift */; };
 		7ABBAE8C1EE3E90700680E1B /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABBAE8B1EE3E90700680E1B /* ChartViewController.swift */; };
-		7AFA02C61EE2540B009B22A2 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFA02C41EE2540B009B22A2 /* MainTabBarController.swift */; };
-		7AFA02C71EE2540B009B22A2 /* MainTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AFA02C51EE2540B009B22A2 /* MainTabBarController.xib */; };
 		7AFA02CA1EE26645009B22A2 /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFA02C91EE26645009B22A2 /* LeftViewController.swift */; };
 		7AFA02CC1EE27C44009B22A2 /* PlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFA02CB1EE27C44009B22A2 /* PlantViewController.swift */; };
-		7AFA02D01EE2A195009B22A2 /* SwiftColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFA02CF1EE2A195009B22A2 /* SwiftColors.swift */; };
 		7AFA02D21EE2A8D1009B22A2 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AFA02D11EE2A8D1009B22A2 /* MenuTableViewCell.swift */; };
 		F7CFF5CF04DAFF9D7E53D451 /* Pods_Leaf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4646D3053E365BA1FBA7DE07 /* Pods_Leaf.framework */; };
 /* End PBXBuildFile section */
@@ -54,6 +59,9 @@
 
 /* Begin PBXFileReference section */
 		4646D3053E365BA1FBA7DE07 /* Pods_Leaf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Leaf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A13987B1EF14BB5009A22DD /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		7A13987D1EF14F78009A22DD /* log.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = log.png; sourceTree = "<group>"; };
+		7A13987F1EF14F8C009A22DD /* Leaf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Leaf.png; sourceTree = "<group>"; };
 		7A23CE771EEB99AD00885B60 /* ChatTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewController.swift; sourceTree = "<group>"; };
 		7A23CE791EEB9AEC00885B60 /* InputTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputTextView.swift; sourceTree = "<group>"; };
 		7A23CE7B1EEBA0A100885B60 /* MessageBubbleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageBubbleTableViewCell.swift; sourceTree = "<group>"; };
@@ -68,9 +76,7 @@
 		7A7A223C1EF03EAB00D4D888 /* DeveloperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeveloperViewController.swift; sourceTree = "<group>"; };
 		7A7F3DFE1EDEF0A300D37470 /* Leaf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Leaf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A7F3E011EDEF0A300D37470 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7A7F3E031EDEF0A300D37470 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7A7F3E061EDEF0A300D37470 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7A7F3E0B1EDEF0A300D37470 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A7F3E0D1EDEF0A300D37470 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A7F3E121EDEF0A300D37470 /* LeafTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeafTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A7F3E161EDEF0A300D37470 /* LeafTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeafTests.swift; sourceTree = "<group>"; };
@@ -78,12 +84,16 @@
 		7A7F3E1D1EDEF0A300D37470 /* LeafUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeafUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A7F3E211EDEF0A300D37470 /* LeafUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeafUITests.swift; sourceTree = "<group>"; };
 		7A7F3E231EDEF0A300D37470 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7AADFABF1EF0C6F600858EA9 /* OwnerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerViewController.swift; sourceTree = "<group>"; };
+		7AADFAC11EF0C70900858EA9 /* EditOwnerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditOwnerViewController.swift; sourceTree = "<group>"; };
+		7AADFAC51EF119CD00858EA9 /* TemChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemChartViewController.swift; sourceTree = "<group>"; };
+		7AADFAC91EF11B0600858EA9 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		7AADFACB1EF11BF900858EA9 /* ExamplesDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamplesDefaults.swift; sourceTree = "<group>"; };
+		7AADFACD1EF12BCB00858EA9 /* humChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = humChartViewController.swift; sourceTree = "<group>"; };
+		7AADFACF1EF12C6C00858EA9 /* illChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = illChartViewController.swift; sourceTree = "<group>"; };
 		7ABBAE8B1EE3E90700680E1B /* ChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
-		7AFA02C41EE2540B009B22A2 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		7AFA02C51EE2540B009B22A2 /* MainTabBarController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTabBarController.xib; sourceTree = "<group>"; };
 		7AFA02C91EE26645009B22A2 /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
 		7AFA02CB1EE27C44009B22A2 /* PlantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantViewController.swift; sourceTree = "<group>"; };
-		7AFA02CF1EE2A195009B22A2 /* SwiftColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftColors.swift; path = "../../Downloads/SwiftSideslipLikeQQ-master/SwiftColors.swift"; sourceTree = "<group>"; };
 		7AFA02D11EE2A8D1009B22A2 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		7AFA8A841EE0512200901580 /* Leaf-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Leaf-Bridging-Header.h"; sourceTree = "<group>"; };
 		B1ACC312FC41E21D201F647E /* Pods-Leaf.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Leaf.release.xcconfig"; path = "Pods/Target Support Files/Pods-Leaf/Pods-Leaf.release.xcconfig"; sourceTree = "<group>"; };
@@ -149,6 +159,8 @@
 		7A77D64D1EE1554500E9D2E3 /* others */ = {
 			isa = PBXGroup;
 			children = (
+				7AADFACB1EF11BF900858EA9 /* ExamplesDefaults.swift */,
+				7AADFAC91EF11B0600858EA9 /* String.swift */,
 				7A7A223C1EF03EAB00D4D888 /* DeveloperViewController.swift */,
 				7A77D64B1EE1554000E9D2E3 /* Common.swift */,
 				7AFA8A841EE0512200901580 /* Leaf-Bridging-Header.h */,
@@ -168,7 +180,6 @@
 		7A7F3DF51EDEF0A200D37470 = {
 			isa = PBXGroup;
 			children = (
-				7AFA02CF1EE2A195009B22A2 /* SwiftColors.swift */,
 				7A7F3E001EDEF0A300D37470 /* Leaf */,
 				7A7F3E151EDEF0A300D37470 /* LeafTests */,
 				7A7F3E201EDEF0A300D37470 /* LeafUITests */,
@@ -191,19 +202,20 @@
 		7A7F3E001EDEF0A300D37470 /* Leaf */ = {
 			isa = PBXGroup;
 			children = (
+				7A13987F1EF14F8C009A22DD /* Leaf.png */,
+				7A13987D1EF14F78009A22DD /* log.png */,
+				7AADFAC31EF0C70E00858EA9 /* owner */,
 				7A7A22391EEFEF7A00D4D888 /* plant */,
 				7A67E6BD1EEE6475009B08E4 /* face detect */,
 				7A23CE761EEB999200885B60 /* chat */,
 				7AFA02C81EE265F3009B22A2 /* left menu */,
-				7AFA8A891EE0534600901580 /* login and register */,
 				7A77D6481EE1545B00E9D2E3 /* main */,
-				7AFA02C31EE253B8009B22A2 /* tab */,
+				7AADFAC41EF119A700858EA9 /* chart */,
 				7A7F3E051EDEF0A300D37470 /* Main.storyboard */,
 				7A7F3E011EDEF0A300D37470 /* AppDelegate.swift */,
-				7A7F3E0A1EDEF0A300D37470 /* LaunchScreen.storyboard */,
+				7A13987B1EF14BB5009A22DD /* Launch Screen.storyboard */,
 				7A7F3E0D1EDEF0A300D37470 /* Info.plist */,
 				7A67E6B91EEE3727009B08E4 /* Assets.xcassets */,
-				7ABBAE8B1EE3E90700680E1B /* ChartViewController.swift */,
 				7A77D64D1EE1554500E9D2E3 /* others */,
 			);
 			path = Leaf;
@@ -227,13 +239,24 @@
 			path = LeafUITests;
 			sourceTree = "<group>";
 		};
-		7AFA02C31EE253B8009B22A2 /* tab */ = {
+		7AADFAC31EF0C70E00858EA9 /* owner */ = {
 			isa = PBXGroup;
 			children = (
-				7AFA02C41EE2540B009B22A2 /* MainTabBarController.swift */,
-				7AFA02C51EE2540B009B22A2 /* MainTabBarController.xib */,
+				7AADFAC11EF0C70900858EA9 /* EditOwnerViewController.swift */,
+				7AADFABF1EF0C6F600858EA9 /* OwnerViewController.swift */,
 			);
-			name = tab;
+			name = owner;
+			sourceTree = "<group>";
+		};
+		7AADFAC41EF119A700858EA9 /* chart */ = {
+			isa = PBXGroup;
+			children = (
+				7ABBAE8B1EE3E90700680E1B /* ChartViewController.swift */,
+				7AADFAC51EF119CD00858EA9 /* TemChartViewController.swift */,
+				7AADFACD1EF12BCB00858EA9 /* humChartViewController.swift */,
+				7AADFACF1EF12C6C00858EA9 /* illChartViewController.swift */,
+			);
+			name = chart;
 			sourceTree = "<group>";
 		};
 		7AFA02C81EE265F3009B22A2 /* left menu */ = {
@@ -243,14 +266,6 @@
 				7AFA02D11EE2A8D1009B22A2 /* MenuTableViewCell.swift */,
 			);
 			name = "left menu";
-			sourceTree = "<group>";
-		};
-		7AFA8A891EE0534600901580 /* login and register */ = {
-			isa = PBXGroup;
-			children = (
-				7A7F3E031EDEF0A300D37470 /* ViewController.swift */,
-			);
-			name = "login and register";
 			sourceTree = "<group>";
 		};
 		98E01E9459226C8A6E1F3DAF /* Pods */ = {
@@ -382,9 +397,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A7F3E0C1EDEF0A300D37470 /* LaunchScreen.storyboard in Resources */,
-				7AFA02C71EE2540B009B22A2 /* MainTabBarController.xib in Resources */,
+				7A13987E1EF14F78009A22DD /* log.png in Resources */,
 				7A67E6BA1EEE3727009B08E4 /* Assets.xcassets in Resources */,
+				7A1398801EF14F8C009A22DD /* Leaf.png in Resources */,
+				7A13987C1EF14BB5009A22DD /* Launch Screen.storyboard in Resources */,
 				7A7F3E071EDEF0A300D37470 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,23 +475,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A7A223D1EF03EAB00D4D888 /* DeveloperViewController.swift in Sources */,
-				7A7F3E041EDEF0A300D37470 /* ViewController.swift in Sources */,
+				7AADFAD01EF12C6C00858EA9 /* illChartViewController.swift in Sources */,
+				7AADFACA1EF11B0600858EA9 /* String.swift in Sources */,
 				7A7F3E021EDEF0A300D37470 /* AppDelegate.swift in Sources */,
-				7AFA02C61EE2540B009B22A2 /* MainTabBarController.swift in Sources */,
+				7AADFAC21EF0C70900858EA9 /* EditOwnerViewController.swift in Sources */,
 				7A77D64F1EE1570700E9D2E3 /* BackViewController.swift in Sources */,
 				7A23CE7E1EEBA0AF00885B60 /* MessageSentDateTableViewCell.swift in Sources */,
 				7A23CE7C1EEBA0A100885B60 /* MessageBubbleTableViewCell.swift in Sources */,
 				7AFA02D21EE2A8D1009B22A2 /* MenuTableViewCell.swift in Sources */,
 				7A77D64C1EE1554000E9D2E3 /* Common.swift in Sources */,
+				7AADFACE1EF12BCB00858EA9 /* humChartViewController.swift in Sources */,
 				7A7A223B1EF014B800D4D888 /* EditViewController.swift in Sources */,
-				7AFA02D01EE2A195009B22A2 /* SwiftColors.swift in Sources */,
 				7AFA02CC1EE27C44009B22A2 /* PlantViewController.swift in Sources */,
 				7AFA02CA1EE26645009B22A2 /* LeftViewController.swift in Sources */,
 				7A77D64A1EE1548800E9D2E3 /* HomeViewController.swift in Sources */,
+				7AADFAC01EF0C6F600858EA9 /* OwnerViewController.swift in Sources */,
+				7AADFACC1EF11BF900858EA9 /* ExamplesDefaults.swift in Sources */,
 				7A67E6BC1EEE646B009B08E4 /* FaceViewController.swift in Sources */,
 				7ABBAE8C1EE3E90700680E1B /* ChartViewController.swift in Sources */,
 				7A23CE801EEBC12600885B60 /* Message.swift in Sources */,
 				7A23CE7A1EEB9AEC00885B60 /* InputTextView.swift in Sources */,
+				7AADFAC61EF119CD00858EA9 /* TemChartViewController.swift in Sources */,
 				7A23CE781EEB99AD00885B60 /* ChatTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,14 +538,6 @@
 				7A7F3E061EDEF0A300D37470 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		7A7F3E0A1EDEF0A300D37470 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7A7F3E0B1EDEF0A300D37470 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

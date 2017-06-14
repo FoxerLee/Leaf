@@ -15,5 +15,5 @@ struct Common {
     
     static let rootViewController = UIApplication.shared.keyWindow?.rootViewController as! BackViewController
     
-    static let stateVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "State")
+    
 }

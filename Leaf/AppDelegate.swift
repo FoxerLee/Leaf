@@ -34,6 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         AVOSCloud.setApplicationId("Axt4dgt9e75IXmYip6UkEM1S-gzGzoHsz", clientKey: "C0IDutCBftqrMsV3C2zA44fD")
+
+        
         
         // 改变 StatusBar 颜色
         application.statusBarStyle = UIStatusBarStyle.lightContent

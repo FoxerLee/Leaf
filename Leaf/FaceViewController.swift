@@ -27,7 +27,7 @@ class FaceViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         self.button.setTitle("来测试一下你现在的心情吧!", for: [])
         self.wordsLabel.text = normalDictionary[1]
         // 自定义返回按钮
-        let backButton = UIBarButtonItem(title: "く返回", style: UIBarButtonItemStyle.plain, target: self, action: #selector(PlantViewController.goBack))
+        let backButton = UIBarButtonItem(image: UIImage(named: "b"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(PlantViewController.goBack))
         self.navigationItem.leftBarButtonItem = backButton
         // 弥补因为返回按钮被替换导致的边缘滑入手势失效的问题
         let gesture = UIPanGestureRecognizer(target: self, action: #selector(PlantViewController.goBack))

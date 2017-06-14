@@ -7,59 +7,27 @@
 //
 
 import UIKit
-import SwiftChart
 import Charts
 
-class ChartViewController: UIViewController, ChartDelegate {
+class ChartViewController: UIViewController {
 
-    @IBOutlet weak var lineChart: Chart!
-    @IBOutlet weak var pieChart: PieChartView!
+    @IBOutlet weak var temPie: PieChartView!
+    @IBOutlet weak var humPie: PieChartView!
+    @IBOutlet weak var sunPie: PieChartView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //这里是swiftchart部分
-        lineChart.delegate = self 
         
-        let data: [Float] = [12, 18, 21, 25, 30, 28, 22, 20]
-        
-        let series = ChartSeries(data)
-        series.area = true
-        
-        lineChart.add(series)
-        
-        // Set minimum and maximum values for y-axis
-        lineChart.minY = 40
-        lineChart.maxY = 0
-        
-        // Format y-axis, e.g. with units
-        lineChart.yLabelsFormatter = { String(Int($1)) +  "ºC" }
-        
-        var labels: [Float] = []
-        var labelsAsString: Array<String> = []
-        
-        let dataFormatter = DateFormatter()
-        dataFormatter.dateFormat = "EE"
-        for i in 0 ..< 7 {
-            let temp:String = dataFormatter.weekdaySymbols[i]
-            let weeksAsString = (temp as NSString).substring(to: 3)
-            labelsAsString.append(weeksAsString)
-            labels.append(Float(i))
-        }
-        print(labelsAsString)
-        lineChart.xLabels = labels
-        lineChart.xLabelsFormatter = { (labelIndex: Int, labelValue: Float) -> String in
-            return labelsAsString[labelIndex]
-        }
-        lineChart.xLabelsTextAlignment = .center
         
         //这里是chart
-        let label = [""]
-        let unitsSold = [100.0]
+        let label = ["",""]
+        let unitsSold = [80.0, 20.0]
         
-        setChart(dataPoints: label, values: unitsSold);
+        setChart(dataPoints: label, values: unitsSold, pieChart: temPie, flag: 0)
+        setChart(dataPoints: label, values: unitsSold, pieChart: humPie, flag: 1)
+        setChart(dataPoints: label, values: unitsSold, pieChart: sunPie, flag: 2)
         
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,32 +35,15 @@ class ChartViewController: UIViewController, ChartDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    //这里是swiftchart的按钮相关
-    func didTouchChart(_ chart: Chart, indexes: Array<Int?>, x: Float, left: CGFloat) {
-        for (seriesIndex, dataIndex) in indexes.enumerated() {
-            if let value = chart.valueForSeries(seriesIndex, atIndex: dataIndex) {
-                print("Touched series: \(seriesIndex): data index: \(dataIndex!); series value: \(value); x-axis value: \(x) (from left: \(left))")
-                //动态改变下面圆状的数据
-                let score = value / 50
-                let label = ["", "指数"]
-                let unitsSold = [Double((50-value)/50), Double(score)]
-                
-                setChart(dataPoints: label, values: unitsSold)
-                
-            }
-        }
-    }
     
-    func didFinishTouchingChart(_ chart: Chart) {
+    @IBAction func back(_ sender: UIBarButtonItem) {
         
+        dismiss(animated: true, completion: nil)
     }
-    
-    func didEndTouchingChart(_ chart: Chart) {
-        
-    }
+
     
     //这里是chart的设置
-    func setChart(dataPoints: [String], values: [Double]) {
+    func setChart(dataPoints: [String], values: [Double], pieChart: PieChartView, flag: Int) {
         var dataEntries: [PieChartDataEntry] = []
         
         for i in 0..<dataPoints.count {
@@ -100,7 +51,11 @@ class ChartViewController: UIViewController, ChartDelegate {
             dataEntries.append(dataEntry)
         }
         
-        let pieChartDataSet = PieChartDataSet(values: dataEntries, label: "百分比")
+        let pieChartDataSet = PieChartDataSet(values: dataEntries, label: "")
+        pieChartDataSet.label = ""
+        pieChartDataSet.setColor(NSUIColor(red: 136/255, green: 190/255, blue: 187/255, alpha: 1.0))
+        
+        
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
         
         pieChart.data = pieChartData
@@ -118,7 +73,14 @@ class ChartViewController: UIViewController, ChartDelegate {
         
         pieChartDataSet.colors = colors
         
+        
+        pieChart.centerText = ""
+        let d = Description()
+        d.text = ""
+        pieChart.chartDescription = d
+        pieChart.backgroundColor = UIColor.clear
     }
 
-
+    
+    
 }

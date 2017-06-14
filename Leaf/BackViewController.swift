@@ -7,11 +7,11 @@
 //
 
 import UIKit
+import AVOSCloud
 
 class BackViewController: UIViewController {
     
-    // 该 TabBar Controller 不是传统意义上的容器，在此只负责提供 UITabBar 这个 UI 组件
-    var mainTabBarController: MainTabBarController!
+   
     
     // 主界面点击手势，用于在菜单划出状态下点击主页后自动关闭菜单
     var tapGesture: UITapGestureRecognizer!
@@ -42,10 +42,13 @@ class BackViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
+        
+        
         // 给根容器设置背景
         let imageView = UIImageView(image: UIImage(named: "back_1"))
         imageView.frame = UIScreen.main.bounds
         self.view.addSubview(imageView)
+
         
         // 通过 StoryBoard 取出左侧侧滑菜单视图
         leftViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LeftViewController") as! LeftViewController
@@ -69,13 +72,7 @@ class BackViewController: UIViewController {
 
         // 初始化主视图，即包含 TabBar、NavigationBar和首页的总视图
         mainView = UIView(frame: self.view.frame)
-        // 初始化 TabBar
-//        let nibContents = Bundle.main.loadNibNamed("MainTabBarController", owner: nil, options: nil)
-//        mainTabBarController = nibContents?.first as! MainTabBarController
-//        // 取出 TabBar Controller 的视图加入主视图
-//        let tabBarView = mainTabBarController.view
-//        mainView.addSubview(tabBarView!)
-        
+     
         // 从 StoryBoard 取出首页的 Navigation Controller
         homeNavigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeNavigationController") as! UINavigationController
         // 从 StoryBoard 初始化而来的 Navigation Controller 会自动初始化他的 Root View Controller，即 HomeViewController
@@ -85,9 +82,7 @@ class BackViewController: UIViewController {
         mainView.addSubview(homeViewController.navigationController!.view)
         mainView.addSubview(homeViewController.view)
         
-//        // 在 TabBar Controller 的视图中，将 TabBar 视图提到最表层
-//        tabBarView?.bringSubview(toFront: mainTabBarController.tabBar)
-//        
+       
         // 将主视图加入容器
         self.view.addSubview(mainView)
         
@@ -102,6 +97,15 @@ class BackViewController: UIViewController {
         
         // 生成单击收起菜单手势
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(BackViewController.showHome))
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        //自动登录
+        AVUser.logInWithMobilePhoneNumber(inBackground: "18101921162", password: "123456") { (user : AVUser?, error : Error?) in
+            if (error == nil) {
+                print("SUCCSEE")
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

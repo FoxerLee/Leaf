@@ -39,6 +39,10 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         name1TextField.delegate = self
         ageTextField.delegate = self
         genderTextField.delegate = self
+        
+        // 自定义返回按钮
+        let backButton = UIBarButtonItem(image: UIImage(named: "b"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(PlantViewController.goBack))
+        self.navigationItem.leftBarButtonItem = backButton
     }
 
     override func didReceiveMemoryWarning() {
@@ -155,10 +159,10 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         plant.setObject(genderTextField.text, forKey: "gender")
         
         if change == true {
-            let imageData = UIImagePNGRepresentation(image.image!)
-            let largeImageData = UIImagePNGRepresentation(largeImage.image!)
-            let imageFile = AVFile.init(data: imageData!)
-            let largeImageFile = AVFile.init(data: largeImageData!)
+            let imageData = UIImageJPEGRepresentation(image.image!, 0.3)
+            let largeImageData = UIImageJPEGRepresentation(largeImage.image!, 0.3)
+            let imageFile = AVFile.init(name: "plant.jpg", data: imageData!)
+            let largeImageFile = AVFile.init(name: "plant.jpg", data: largeImageData!)
             plant.setObject(imageFile, forKey: "image")
             plant.setObject(largeImageFile, forKey: "largeImage")
         }
@@ -176,6 +180,10 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         let gender = genderTextField.text ?? ""
         
         self.navigationItem.rightBarButtonItem?.isEnabled = (!day.isEmpty && !name.isEmpty && !name1.isEmpty && !age.isEmpty && !gender.isEmpty)
+    }
+    
+    func goBack() {
+        _ = self.navigationController?.popViewController(animated: true)
     }
 
 }

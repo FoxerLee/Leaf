@@ -22,6 +22,10 @@ class HomeViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeech
 
     @IBOutlet var panGesture: UIPanGestureRecognizer!
     
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var image: UIImageView!
+    
+    @IBOutlet weak var wordsLabel: UILabel!
     //语音识别相关
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "zh-CN"))
     
@@ -63,15 +67,34 @@ class HomeViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeech
                 self.recordButton.isEnabled =  isButtonEnabled
             }
         }
-        //自动登录
-        AVUser.logInWithMobilePhoneNumber(inBackground: "18101921162", password: "123456") { (user : AVUser?, error : Error?) in
-            if (error == nil) {
-                print("SUCCSEE")
-            }
+        
+        
+        self.getData()
+        let randomResult = getRandomInt()
+        if userEmotion == 0 {
+            wordsLabel.text = sadDictionary[randomResult]
+        }
+        else if userEmotion == 1 {
+            wordsLabel.text = normalDictionary[randomResult]
+        }
+        else {
+            wordsLabel.text = happyDictionary[randomResult]
         }
         
-        
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.getData()
+        let randomResult = getRandomInt()
+        if userEmotion == 0 {
+            wordsLabel.text = sadDictionary[randomResult]
+        }
+        else if userEmotion == 1 {
+            wordsLabel.text = normalDictionary[randomResult]
+        }
+        else {
+            wordsLabel.text = happyDictionary[randomResult]
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -179,13 +202,24 @@ class HomeViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeech
         }
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "showOtherPages" {
-//            if let a = segue.destination as? OtherViewController {
-//                a.PageTitle = titleOfOtherPage
-//            }
-//        }
-//    }
+    private func getData() {
+        let user = AVUser.current()!
+        let owner = user.username!
+        
+        let all = AVQuery(className: "plant")
+        all.whereKey("owner", equalTo: owner)
+        
+        var plants = all.findObjects()
+        let plant = plants?.popLast() as! AVObject
+        
+        let name = plant.object(forKey: "name") as! String
+        self.nameLabel.text = name
+        
+        let imageFile = plant.object(forKey: "image") as! AVFile
+        let imageData = imageFile.getData()
+        self.image.image = UIImage(data: imageData!)
+        
+    }
     //TTS部分
     func speechMessage (message: String) {
         if (!message.isEmpty) {
@@ -211,6 +245,19 @@ class HomeViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeech
             synth.speak(utterance)
         }
     }
+    
+    private func getRandomInt() -> Int {
+        let randomInt = Int(arc4random()) % 101
+        var randomResult = 0
+        if randomInt < 50 {
+            randomResult = 0
+        }
+        else {
+            randomResult = 1
+        }
+        return randomResult
+    }
+    
     
     func stopSpeech () {
         // 立即中断语音

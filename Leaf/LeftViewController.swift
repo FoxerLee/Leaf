@@ -6,6 +6,7 @@
 //  Copyright © 2017 李源. All rights reserved.
 //
 
+import AVOSCloud
 import UIKit
 
 class LeftViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -18,7 +19,7 @@ class LeftViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var signatureLabel: UILabel!
     
-//    @IBOutlet weak var menuLabel: UILabel!
+
     
     let titleDictionary = ["小植聊天", "心情检测", "我的植物", "个性设置", "开发者", "退出"]
     let iconDictionary = ["1", "2", "3", "4", "5", "6"]
@@ -32,7 +33,19 @@ class LeftViewController: UIViewController, UITableViewDelegate, UITableViewData
         heightLayoutConstraintOfsettingTableView.constant = Common.screenHeight < 500 ? Common.screenHeight * (568 - 221) / 568 : 347
         self.view.frame = CGRect(x: 0, y: 0, width: 320 * 0.78, height: Common.screenHeight)
         // Do any additional setup after loading the view.
+        
+        
+        self.getData()
+        avatarImageView.layer.cornerRadius = avatarImageView.frame.height / 2
+        avatarImageView.clipsToBounds = true
+
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(LeftViewController.re), for: UIControlEvents.valueChanged)
+
+        settingTableView.refreshControl = refreshControl
     }
+    
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -47,7 +60,7 @@ class LeftViewController: UIViewController, UITableViewDelegate, UITableViewData
             let viewController = Common.rootViewController
             viewController.homeViewController.titleOfOtherPage = titleDictionary[(indexPath as NSIndexPath).row]
             viewController.homeViewController.performSegue(withIdentifier: "chat", sender: self)
-            Common.stateVC.view.removeFromSuperview()
+            
             
             viewController.showHome()
             tableView.deselectRow(at: indexPath, animated: false)
@@ -59,7 +72,7 @@ class LeftViewController: UIViewController, UITableViewDelegate, UITableViewData
             let viewController = Common.rootViewController
             viewController.homeViewController.titleOfOtherPage = titleDictionary[(indexPath as NSIndexPath).row]
             viewController.homeViewController.performSegue(withIdentifier: "faceDetect", sender: self)
-            Common.stateVC.view.removeFromSuperview()
+            
             
             viewController.showHome()
             tableView.deselectRow(at: indexPath, animated: false)
@@ -69,7 +82,17 @@ class LeftViewController: UIViewController, UITableViewDelegate, UITableViewData
             let viewController = Common.rootViewController
             viewController.homeViewController.titleOfOtherPage = titleDictionary[(indexPath as NSIndexPath).row]
             viewController.homeViewController.performSegue(withIdentifier: "plant", sender: self)
-            Common.stateVC.view.removeFromSuperview()
+            
+            
+            viewController.showHome()
+            tableView.deselectRow(at: indexPath, animated: false)
+        }
+        //主人
+        else if indexPath.row == 3 {
+            let viewController = Common.rootViewController
+            viewController.homeViewController.titleOfOtherPage = titleDictionary[(indexPath as NSIndexPath).row]
+            viewController.homeViewController.performSegue(withIdentifier: "owner", sender: self)
+            
             
             viewController.showHome()
             tableView.deselectRow(at: indexPath, animated: false)
@@ -79,10 +102,16 @@ class LeftViewController: UIViewController, UITableViewDelegate, UITableViewData
             let viewController = Common.rootViewController
             viewController.homeViewController.titleOfOtherPage = titleDictionary[(indexPath as NSIndexPath).row]
             viewController.homeViewController.performSegue(withIdentifier: "developer", sender: self)
-            Common.stateVC.view.removeFromSuperview()
+            
             
             viewController.showHome()
             tableView.deselectRow(at: indexPath, animated: false)
+        }
+        else if indexPath.row == 5 {
+            // 进入后台
+            UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
+            // 结束应用
+            UIApplication.shared.perform(Selector(("terminateWithSuccess")))
         }
     }
     
@@ -103,14 +132,29 @@ class LeftViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.menuImage.image = UIImage(named: menuImageStr)
         return cell
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    
+    func re() {
+        let user = AVUser.current()
+        usernameLabel.text = user?.username
+        let words = user?.object(forKey: "words") as! String
+        signatureLabel.text = words
+        
+        let imageFile = user?.object(forKey: "avatar") as! AVFile
+        let imageData = imageFile.getData()
+        avatarImageView.image = UIImage(data: imageData!)
+        
+        self.settingTableView.refreshControl?.endRefreshing()
     }
-    */
 
+    func getData() {
+        let user = AVUser.current()
+        usernameLabel.text = user?.username
+        let words = user?.object(forKey: "words") as! String
+        signatureLabel.text = words
+    
+        let imageFile = user?.object(forKey: "avatar") as! AVFile
+        let imageData = imageFile.getData()
+        avatarImageView.image = UIImage(data: imageData!)
+    }
 }

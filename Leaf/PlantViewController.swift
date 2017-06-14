@@ -39,7 +39,7 @@ class PlantViewController: UIViewController{
         
         
         // 自定义返回按钮
-        let backButton = UIBarButtonItem(title: "く返回", style: UIBarButtonItemStyle.plain, target: self, action: #selector(PlantViewController.goBack))
+        let backButton = UIBarButtonItem(image: UIImage(named: "b"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(PlantViewController.goBack))
         self.navigationItem.leftBarButtonItem = backButton
         // 弥补因为返回按钮被替换导致的边缘滑入手势失效的问题
         let gesture = UIPanGestureRecognizer(target: self, action: #selector(PlantViewController.goBack))
@@ -59,7 +59,16 @@ class PlantViewController: UIViewController{
     }
     
     @IBAction func unwindToPlantEdit(sender: UIStoryboardSegue) {
-//        self.getData()
+        if let sourceViewController = sender.source as? EditViewController {
+            birthdayLabel.text = "种植日 / " + sourceViewController.dayTextField.text!
+            self.ageLabel.text = "年龄 / " + sourceViewController.ageTextField.text! + " 岁"
+            self.nameLabel.text = "名字 / " + sourceViewController.nameTextField.text!
+            self.name1Label.text = "中文学名 / " + sourceViewController.name1TextField.text!
+            self.genderLabel.text = "性别 / " + sourceViewController.genderTextField.text!
+            self.plantImage.image = sourceViewController.image.image
+            self.largePlantImage.image = sourceViewController.largeImage.image
+            self.name2Label.text = sourceViewController.name1TextField.text!
+        }
     }
 
     func goBack() {
